@@ -12,12 +12,12 @@ export const Empresa = () => {
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                     <img src='/logo.png' alt='Logo Consolitex - Footer' width='150' height='150' />
                     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                        <TypographyCustom component='h5' variant='overline' fontSize={16} fontWeight='bold'>Consolitex®</TypographyCustom>
-                        <TypographyCustom variant='subtitle2' fontWeight='100' >Bienes Raíces</TypographyCustom>
+                        <TypographyCustom component='h5' variant='overline' fontSize={16} fontWeight='bold'>TSports</TypographyCustom>
+                        {/* <TypographyCustom variant='subtitle2' fontWeight='100' >Bienes Raíces</TypographyCustom> */}
                     </Box>
                 </Box>
             </Box>
-            <TypographyCustom component='p' fontmode={2}>Somos tu mejor opción a la hora de buscar un inmueble en el estado Carabobo. Siempre estamos para servirte, ¡Consolitex te da más! RIF: J-29820228-9</TypographyCustom>
+            <TypographyCustom component='p' fontmode={2}>Estadisticas, graficas y comparaciones de jugadores de beisbol. Siguenos en nuestras redes!</TypographyCustom>
         </>
     )
 }

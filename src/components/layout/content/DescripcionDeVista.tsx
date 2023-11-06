@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import Box from '@mui/material/Box';
-import { darken, useTheme } from '@mui/material';
+import { useTheme } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackRounded from '@mui/icons-material/ArrowBackRounded';
 import { TypographyCustom } from '../../custom/TypographyCustom';
@@ -20,7 +20,6 @@ export const DescripcionDeVista = (props: Props) => {
     const router = useNavigate();
     const theme = useTheme();
     const { authState } = useContext(AuthContext)
-    const backpath = props.backPath ? props.backPath : -1;
     return (
         <Box sx={styles.nameContainer}>
             <Button size='small' onClick={() => router(authState.role?.description === 'Cliente' ? '/dashboard' : '/admin/dashboard')} variant="text" sx={{
@@ -35,7 +34,7 @@ export const DescripcionDeVista = (props: Props) => {
             </Button>
 
             <Box sx={{ display: 'flex', alignItems: 'center', flexFlow: 'row nowrap' }}>
-                <IconButton onClick={() => router(backpath)}>
+                <IconButton onClick={() => router((props.backPath ? props.backPath : "-1"))}>
                     <ArrowBackRounded />
                 </IconButton>
                 <TypographyCustom variant='h4' fontWeight={'bold'}>

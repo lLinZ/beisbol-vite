@@ -31,14 +31,14 @@ export const UserMenu = () => {
     return (
         <Box>
             <IconButton onClick={handleClick}>
-                <Avatar alt='User Avatar' sx={{ width: 40, height: 40, bgcolor: authState.color }}>{authState.logged ? authState.nombre.substring(0, 1) + authState.apellido.substring(0, 1) : 'U'}</Avatar>
+                <Avatar alt='User Avatar' sx={{ width: 40, height: 40, bgcolor: authState.color }}>{authState.logged ? authState.name.substring(0, 1) + authState.lastname.substring(0, 1) : 'USR'}</Avatar>
             </IconButton>
             <Menu open={open} anchorEl={anchorEl} onClose={handleClose} onClick={handleClose}
                 PaperProps={styles.paperProps}
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem onClick={() => redirect('/perfil')}>
+                <MenuItem onClick={() => redirect('/profile')}>
                     <SettingsRounded sx={{ color: authState.color }} />
                     <TypographyCustom variant='subtitle1'>
                         Configurar perfil

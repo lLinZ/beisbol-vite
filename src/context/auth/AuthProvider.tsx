@@ -10,11 +10,12 @@ type Props = {
 }
 const initialState: IUser = {
     id: 0,
-    nombre: '',
-    apellido: '',
-    cedula: '',
-    telefono: '',
+    name: '',
+    lastname: '',
+    document: '',
+    phone: '',
     email: '',
+    short_address: '',
     role_id: 0,
     status_id: 0,
     created_at: '',
@@ -41,7 +42,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
                 case 200:
                     const { user } = await response.json();
                     dispatch({ type: AUTH_ACTIONS.validate, payload: { ...user, token, logged: true } })
-                    const path = user.role.description === 'Cliente' ? '/dashboard' : '/admin/dashboard';
+                    const path = user.role.description === 'Master' ? '/admin/dashboard' : '/dashboard';
                     return { status: true, message: 'Sesion validada', user, path }
                 default:
                     deleteCookie('token');
@@ -56,11 +57,12 @@ export const AuthProvider: FC<Props> = ({ children }) => {
 
     const userLogout = async () => {
         const url = `${baseUrl}/logout`;
+
         const options = {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
-                'Authorization': `Bearer ${authState.token}`,
+                'Authorization': `Bearer ${authState.token ? authState.token : getCookieValue('token')}`,
             }
         }
 

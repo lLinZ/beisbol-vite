@@ -19,8 +19,8 @@ export const SideBar = () => {
     const { authState } = useContext(AuthContext)
     const links = [
         { text: 'Dashboard', path: '/dashboard', icon: <DashboardRounded sx={{ color: authState.color }} /> },
-        { text: 'Perfil', path: '/perfil', icon: <ProfileRounded sx={{ color: authState.color }} /> },
-        { text: 'Pagos', path: '/pagos', icon: <MoneyRounded sx={{ color: authState.color }} /> },
+        { text: 'Perfil', path: '/profile', icon: <ProfileRounded sx={{ color: authState.color }} /> },
+        { text: 'Pagos', path: '/payments', icon: <MoneyRounded sx={{ color: authState.color }} /> },
     ];
     const router = useNavigate();
     const onClick = () => {

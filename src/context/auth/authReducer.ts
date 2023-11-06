@@ -24,7 +24,7 @@ export const authReducer: Reducer = (state, action) => {
             return { ...action.payload.initialState, };
 
         case AUTH_ACTIONS.validate:
-            return { ...action.payload };
+            return { ...action.payload, logged:true };
 
         case USER_ACTIONS.edit:
             return { ...state, ...action.payload.user };

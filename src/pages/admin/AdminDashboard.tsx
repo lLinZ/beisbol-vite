@@ -1,7 +1,11 @@
 import { FC } from 'react'
+import { Layout } from '../../components/layout'
+import { DescripcionDeVista } from '../../components/layout/content'
 
 export const AdminDashboard: FC = () => {
     return (
-        <div>AdminDashboard</div>
+        <Layout>
+            <DescripcionDeVista title={'Pagina principal'} description={'Bienvenido, elige una de las opciones para interactuar con el sistema ¿Que deseas hacer?'} />
+        </Layout>
     )
 }
