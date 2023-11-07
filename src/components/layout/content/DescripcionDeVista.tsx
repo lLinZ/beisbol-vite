@@ -4,7 +4,7 @@ import { useTheme } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackRounded from '@mui/icons-material/ArrowBackRounded';
 import { TypographyCustom } from '../../custom/TypographyCustom';
-import { useNavigate } from 'react-router-dom';
+import { To, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import HomeRounded from '@mui/icons-material/HomeRounded';
 import { AuthContext } from '../../../context/auth';
@@ -12,7 +12,7 @@ import { AuthContext } from '../../../context/auth';
 type Props = {
     title: string;
     description: string;
-    backPath?: string;
+    backPath?: string | To;
 }
 
 export const DescripcionDeVista = (props: Props) => {
@@ -22,7 +22,7 @@ export const DescripcionDeVista = (props: Props) => {
     const { authState } = useContext(AuthContext)
     return (
         <Box sx={styles.nameContainer}>
-            <Button size='small' onClick={() => router(authState.role?.description === 'Cliente' ? '/dashboard' : '/admin/dashboard')} variant="text" sx={{
+            <Button size='small' onClick={() => router(authState.role?.description === 'Master' ? '/admin/dashboard' : '/dashboard')} variant="text" sx={{
                 background: 'rgba(100,100,100,0.1)', textTransform: 'none', borderRadius: '10em', color: 'text.secondary', mb: 2, '&:hover': {
                     background: authState.color,
                     color: theme.palette.getContrastText(authState.color)
@@ -34,9 +34,9 @@ export const DescripcionDeVista = (props: Props) => {
             </Button>
 
             <Box sx={{ display: 'flex', alignItems: 'center', flexFlow: 'row nowrap' }}>
-                <IconButton onClick={() => router((props.backPath ? props.backPath : "-1"))}>
-                    <ArrowBackRounded />
-                </IconButton>
+            <IconButton onClick={() => router(props.backPath ? props.backPath : -1 as To)}>
+                <ArrowBackRounded />
+            </IconButton>
                 <TypographyCustom variant='h4' fontWeight={'bold'}>
                     {props.title}
                 </TypographyCustom>
